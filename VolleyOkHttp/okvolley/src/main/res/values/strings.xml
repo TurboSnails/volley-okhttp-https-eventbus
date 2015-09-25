@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">okvolley</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="str_no_net">no net</string>
+
+    <string name="str_res_empty">response null</string>
+</resources>
