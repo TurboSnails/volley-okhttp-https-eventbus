@@ -3,8 +3,11 @@ package com.turbo.volleyokhttp;
 import android.content.Context;
 
 import com.android.volley.Request;
+import com.turbo.base.net.BaseEvent;
 import com.turbo.base.net.BaseLogic;
 import com.turbo.volleyokhttp.bean.LoginEvent;
+import com.turbo.volleyokhttp.bean.LoginRes;
+import com.turbo.volleyokhttp.utils.SignatureUtil;
 
 import java.util.Map;
 
@@ -27,6 +30,8 @@ public class NetLogic extends BaseLogic {
     }
 
     public void login(Context context, String url, Class clz, Map<String, String> params) {
-        mVolleyManager.requestData(context, url, clz, params, Request.Method.POST, true, false, true, new LoginEvent());
+        SignatureUtil.signature(params);
+        mVolleyManager.requestData(context, url, clz, params, Request.Method.POST, true, false, true, new BaseEvent().setBeanClass(LoginRes.class));
     }
+
 }

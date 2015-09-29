@@ -45,7 +45,7 @@ public abstract class Separate {
         }
     }
 
-    public static void onNoNet(Context context) {
+    public void onNoNet(Context context) {
         // 提示
         ToastUtils.showLong(context, "No Net And No Data");
     }
@@ -55,12 +55,12 @@ public abstract class Separate {
      *
      * @param clz 数据类型
      */
-    public static void onResEmpty(Context context, Class<? extends BaseBean> clz) {
+    public void onResEmpty(Context context, Class<? extends BaseBean> clz) {
         // 提示
         ToastUtils.showLong(context, context.getString(R.string.str_res_empty));
     }
 
-    public static void onResError(Context context, String errorMessage, Class<? extends BaseBean> clz) {
+    public void onResError(Context context, String errorMessage, Class<? extends BaseBean> clz) {
         ToastUtils.showLong(context, TextUtils.isEmpty(errorMessage) ? "response error: " : errorMessage + "");
     }
 

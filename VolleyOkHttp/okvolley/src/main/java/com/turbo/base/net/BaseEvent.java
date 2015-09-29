@@ -5,7 +5,7 @@ package com.turbo.base.net;
  * 作者：Turbo on 2015/5/11 19:17
  * 邮箱：turboruby5917@163.com
  */
-public abstract class BaseEvent {
+public class BaseEvent {
     private Object mResObj;
     private String mErrorMessage;
     private VolleyManager.ResponseType mResponseType;
@@ -32,8 +32,9 @@ public abstract class BaseEvent {
         return mBeanClass;
     }
 
-    public void setBeanClass(Class<? extends BaseBean> mBeanClass) {
+    public BaseEvent setBeanClass(Class<? extends BaseBean> mBeanClass) {
         this.mBeanClass = mBeanClass;
+        return this;
     }
 
     public String getErrorMessage() {

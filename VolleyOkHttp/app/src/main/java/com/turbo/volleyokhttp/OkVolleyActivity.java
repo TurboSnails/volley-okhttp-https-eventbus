@@ -1,5 +1,6 @@
 package com.turbo.volleyokhttp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,6 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.turbo.base.net.BaseBean;
+import com.turbo.base.net.BaseEvent;
 import com.turbo.base.net.Separate;
 import com.turbo.base.net.VolleyHelper;
 import com.turbo.base.utils.BusProvider;
@@ -83,19 +85,18 @@ public class OkVolleyActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    public void onEventMainThread(LoginEvent loginEvent) {
-        if (loginEvent.getResponseType() == null) {
+    public void onEventMainThread(BaseEvent baseEvent) {
+        if (baseEvent.getResponseType() == null) {
             return;
-        } else {
-            new Separate() {
-                @Override
-                public void onResSuccess(Object resObj, Class<? extends BaseBean> clz) {
-                    if (clz == LoginRes.class) {
-                        ToastUtils.show(OkVolleyActivity.this, ((LoginRes) resObj).toString(), Toast.LENGTH_LONG);
-                    }
-                }
-            }.dataSeparate(OkVolleyActivity.this, loginEvent);
         }
+        new Separate() {
+            @Override
+            public void onResSuccess(Object resObj, Class<? extends BaseBean> clz) {
+                if (clz == LoginRes.class) {
+                    ToastUtils.show(OkVolleyActivity.this, ((LoginRes) resObj).toString(), Toast.LENGTH_LONG);
+                }
+            }
+        }.dataSeparate(OkVolleyActivity.this, baseEvent);
     }
 
     private void load(String url) {
