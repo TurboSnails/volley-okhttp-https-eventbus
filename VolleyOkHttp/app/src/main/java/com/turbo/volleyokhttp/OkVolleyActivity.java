@@ -37,6 +37,7 @@ public class OkVolleyActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ok_volley);
         initViews();
+        // I will update this project
     }
 
     @Override
