@@ -14,6 +14,5 @@ Studio引入方式：
  >3. 支持自动显示 隐藏dialog
  >4. 支持防止重复点击
  
-#[email：turboruby5917@gmail.com][1]
 
 
