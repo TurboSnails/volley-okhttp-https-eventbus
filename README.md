@@ -17,4 +17,3 @@ Studio引入方式：
 #[email：turboruby5917@gmail.com][1]
 
 
-  [1]: turboruby5917@gmail.com
